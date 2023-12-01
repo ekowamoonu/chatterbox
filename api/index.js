@@ -189,9 +189,12 @@ wss.on("connection", (connection, req) => {
   console.log({ cookies });
   if (cookies) {
     //could be several cookies separated by a semi color
-    const tokenCookieString = cookies
-      .split(";")
-      .find((str) => str.startsWith(" token="));
+    let tokenCookieString = cookies;
+    if (cookies.contains(";")) {
+      tokenCookieString = cookies
+        .split(";")
+        .find((str) => str.startsWith(" token="));
+    }
 
     console.log("tokenstring");
     console.log(tokenCookieString);
