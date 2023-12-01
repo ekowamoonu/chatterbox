@@ -10,6 +10,7 @@ const fs = require("fs");
 
 const User = require("./models/User");
 const Message = require("./models/Message");
+const { Console } = require("console");
 
 mongoose.connect(process.env.MONGO_CONNECTION_STRING);
 jwtSecret = process.env.JWT_SECRET;
@@ -189,14 +190,26 @@ wss.on("connection", (connection, req) => {
     const tokenCookieString = cookies
       .split(";")
       .find((str) => str.startsWith(" token="));
+
     if (tokenCookieString) {
       const token = tokenCookieString.split("=")[1];
+
       if (token) {
         jwt.verify(token, jwtSecret, {}, (err, userData) => {
           if (err) throw err;
           const { userId, username } = userData;
+          Console.log("JWT token log");
+          console.log({ userId, username });
+          Console.log("***");
           connection.userId = userId;
           connection.username = username;
+          console.log({
+            cnUserId: connection.userId,
+            cnUsername: connection.username,
+          });
+          console.log(
+            "*** Log after connection user id and username is supposed to be set"
+          );
         });
       }
     }
