@@ -198,9 +198,9 @@ wss.on("connection", (connection, req) => {
         jwt.verify(token, jwtSecret, {}, (err, userData) => {
           if (err) throw err;
           const { userId, username } = userData;
-          Console.log("JWT token log: ");
+          console.log("JWT token log: ");
           console.log({ userId, username });
-          Console.log("***");
+          console.log("***");
           connection.userId = userId;
           connection.username = username;
           console.log({
