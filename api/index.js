@@ -190,7 +190,7 @@ wss.on("connection", (connection, req) => {
   if (cookies) {
     //could be several cookies separated by a semi color
     let tokenCookieString = cookies;
-    if (cookies.contains(";")) {
+    if (cookies.includes(";")) {
       tokenCookieString = cookies
         .split(";")
         .find((str) => str.startsWith(" token="));
