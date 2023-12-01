@@ -144,7 +144,7 @@ wss.on("error", console.error);
 wss.on("connection", (connection, req) => {
   console.log("On connection callback");
 
-  connect.on("error", console.error);
+  connection.on("error", console.error);
 
   function notifyAboutOnlinePeople() {
     [...wss.clients].forEach((client) => {
