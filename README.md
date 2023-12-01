@@ -24,3 +24,8 @@ hyped for this one.
 Just like for all my fun projects, you are very welcome to clone and adopt freely for your needs. 
 
 Have an awesome weekend and don't forget to sign up and stay online. I'll probably come around to say hi!!!
+
+
+![Screenshot 2023-12-01 000852](https://github.com/ekowamoonu/chatterbox/assets/101939909/3ee3e83f-910d-4b70-856c-608035db2e9b)
+
+![Screenshot 2023-12-01 001049](https://github.com/ekowamoonu/chatterbox/assets/101939909/0f73a5be-6c31-4130-9c2d-bc4969cf1ee8)
