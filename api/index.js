@@ -185,6 +185,8 @@ wss.on("connection", (connection, req) => {
 
   //read user name and id from the cookie from this connection
   const cookies = req.headers.cookie;
+  console.log("logging cookies");
+  console.log({ cookies });
   if (cookies) {
     //could be several cookies separated by a semi color
     const tokenCookieString = cookies
