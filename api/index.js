@@ -22,6 +22,7 @@ app.use(
   cors({
     credentials: true,
     origin: "https://chatterbox-web.onrender.com",
+    // origin: "http://localhost:5173",
   })
 );
 app.use(cookieParser());
@@ -136,7 +137,15 @@ const PORT = process.env.PORT || 8000;
 const server = app.listen(PORT);
 const wss = new ws.WebSocketServer({ server });
 
+console.log("Logging after websocket creation attempt");
+
+wss.on("error", console.error);
+
 wss.on("connection", (connection, req) => {
+  console.log("On connection callback");
+
+  connect.on("error", console.error);
+
   function notifyAboutOnlinePeople() {
     [...wss.clients].forEach((client) => {
       client.send(
@@ -195,6 +204,7 @@ wss.on("connection", (connection, req) => {
 
   //
   connection.on("message", async (message) => {
+    console.log("On message callback");
     const messageData = JSON.parse(message.toString());
     const { recipient, text, file } = messageData;
     let filename = null;
@@ -216,6 +226,7 @@ wss.on("connection", (connection, req) => {
         text,
         file: filename,
       });
+      console.log("Message created");
       [...wss.clients]
         .filter((c) => c.userId === recipient)
         .forEach((c) =>

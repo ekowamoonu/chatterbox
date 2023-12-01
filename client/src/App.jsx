@@ -4,6 +4,7 @@ import Routes from "./Routes";
 
 function App() {
   axios.defaults.baseURL = "https://chatterbox-8i4n.onrender.com";
+  // axios.defaults.baseURL = "http://localhost:8000";
   axios.defaults.withCredentials = true;
 
   return (

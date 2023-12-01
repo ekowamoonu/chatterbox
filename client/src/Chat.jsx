@@ -35,6 +35,7 @@ const Chat = () => {
   // }
   useEffect(() => {
     const ws = new WebSocket("wss://chatterbox-8i4n.onrender.com");
+    // const ws = new WebSocket("ws://localhost:8000");
     setWs(ws);
     ws.addEventListener("message", handleMessage);
 
