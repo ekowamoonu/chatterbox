@@ -227,6 +227,7 @@ wss.on("connection", (connection, req) => {
         file: filename,
       });
       console.log("Message created");
+      console.log(messageDoc);
       [...wss.clients]
         .filter((c) => c.userId === recipient)
         .forEach((c) =>
