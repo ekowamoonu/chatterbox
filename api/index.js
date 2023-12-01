@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "https://chatterbox-web.onrender.com/",
+    origin: "https://chatterbox-web.onrender.com",
   })
 );
 app.use(cookieParser());
